@@ -4,7 +4,7 @@
 
 OWNER = "👑 ᴏᴡɴᴇʀ : [@F_Q_1](https://t.me/F_Q_1)"
 BOT = "🤖 BOT   : [@qvxbot](https://t.me/qvxbot)"
-CHANNEL = "📡 CH    : [@HELLASUserBot](https://t.me/HELLASUserBot)"
+CHANNEL = "📡 CH    : [@iexxx](https://t.me/HELLASUserBot)"
 
 def get_rights():
     return (
@@ -16,7 +16,7 @@ def get_rights():
     )
 
 def ch_tag():
-    return "⌔︙CH : @HELLASUserBot"
+    return "⌔︙CH : @psggg"
 
 def ch_t2ag():
     return "HELLAS"
