@@ -4,7 +4,7 @@
 import asyncio
 import io
 import re
-from hellas import SOURCE_NAME, DEVELOPER_LINK, DEVELOPER_NAME, SUPPORT_NAME, SUPPORT_LINK, INSTALL_LINK, INSTALL_NAME 
+from hellas import SOURCE_NAME, DEVELOPER_LINK, DEVELOPER_NAME, SUPPORT_NAME, SUPPORT_LINK, INSTALL_LINK, INSTALL_NAME, UNAUTHORIZED_TEXT
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
 from JoKeRUB import bot
@@ -137,7 +137,7 @@ async def settings(event):
                                      "اسماء القنوات َِ🛹", data="chanlan")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 
@@ -157,7 +157,7 @@ async def settings(event):  #    قـسـم  الزغرفـة جمـثـون
                                          "║ رجوع ║ ⁦⁩", data="rozzag")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"razan")))  
@@ -175,7 +175,7 @@ async def settings(event):  #    قـسـم  الزغرفـة لأسـماء ا�
                                          "║ رجوع ║", data="rozname")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 
@@ -189,7 +189,7 @@ async def settings(event): #    قـسـم  الزغرفـة لأسـماء ال
                                  buttons=[[Button.inline("║ رجوع ║", data="razan")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام هذا البوت.", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 # Boys zag list2 - قائمه اسماء الشباب الثانيه
@@ -202,7 +202,7 @@ async def settings(event):  #    قـسـم  الزغرفـة لأسـماء ا�
                                  buttons=[[Button.inline("║ رجوع ║", data="razan")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام هذا البوت.", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"RR7PP")))
@@ -220,7 +220,7 @@ async def settings(event): #    قـسـم  الزغرفـة لأسـماء ال
                                          "║ رجوع ║", data="rozname")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 # شنو تـدور  :)
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"RR7PP1")))
@@ -232,7 +232,7 @@ async def settings(event): #    قـسـم  الزغرفـة لأسـماء ال
                                  buttons=[[Button.inline("║ رجوع ║", data="RR7PP")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام هذا البوت.", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"RR7PP2")))
@@ -244,7 +244,7 @@ async def settings(event):  #    قـسـم  الزغرفـة لأسـماء ا�
                                  buttons=[[Button.inline("║ رجوع ║", data="RR7PP")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام هذا البوت.", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio1"))) 
 async def settings(event):  #    قـسـم  البـايو 1
@@ -261,7 +261,7 @@ async def settings(event):  #    قـسـم  البـايو 1
                                          "⫷ التالي ", data="rozpio2")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio2"))) 
@@ -279,7 +279,7 @@ async def settings(event): #    قـسـم  البـايو 2
                                          "⫷ التالي", data="rozpio3")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio3"))) 
@@ -297,7 +297,7 @@ async def settings(event): #    قـسـم  البـايو 3
                                          "⫷ التالي", data="rozpio4")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio4"))) 
@@ -315,7 +315,7 @@ async def settings(event): #    قـسـم  البـايو 4
                                          "⫷ التالي", data="rozpio5")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozpio5"))) 
@@ -333,7 +333,7 @@ async def settings(event):#    قـسـم  البـايو 5
                                          "⫷ التالي", data="rozpio1")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozmonth")))  
 async def settings(event): #    قـسم الـمواليـد و الأشـهر
@@ -350,7 +350,7 @@ async def settings(event): #    قـسم الـمواليـد و الأشـهر
                                          "║ رجوع ║", data="rozzag")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام البوت احصل على بوتك من HELLASUserBot", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"months")))  
@@ -362,7 +362,7 @@ async def settings(event):#    قـسم  الأشـهر
                                  buttons=[[Button.inline("║ رجوع ║", data="rozzag")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام هذا البوت.", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozyear")))  
 async def settings(event):#    قـسم  السنـوات  :)
@@ -373,7 +373,7 @@ async def settings(event):#    قـسم  السنـوات  :)
                                  buttons=[[Button.inline("║ رجوع ║", data="rozmonth")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام هذا البوت.", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"chanlan")))  
@@ -385,4 +385,4 @@ async def settings(event):  # انتهـى  :)  اذا تخـمط تـذكر ت�
                                  buttons=[[Button.inline("║ رجوع ║", data="rozzag")]
                                  ])
     else:
-        await event.answer("انت لا تستطيع استخدام هذا البوت.", alert=True)
+        await event.answer(UNAUTHORIZED_TEXT, alert=True)
