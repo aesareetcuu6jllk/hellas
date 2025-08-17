@@ -1,5 +1,6 @@
 from JoKeRUB import l313l
 from ..core.managers import edit_or_reply
+from .hellas import get_rights  # استيراد الحقوق من ملف hellas.py
 
 plugin_category = "البحث"
 
@@ -12,11 +13,4 @@ plugin_category = "البحث"
     },
 )
 async def _(event):
-    await edit_or_reply(
-        event,
-        "╭──── • ◈ • ────╮\n"
-        "│ 👑 ᴏᴡɴᴇʀ : [@F_Q_1](https://t.me/F_Q_1)\n"
-        "│ 🤖 BOT   : [@qvxbot](https://t.me/qvxbot)\n"
-        "│ 📡 CH    : [@HELLASUserBot](https://t.me/HELLASUserBot)\n"
-        "╰──── • ◈ • ────╯"
-    )
+    await edit_or_reply(event, get_rights())
