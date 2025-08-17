@@ -4,7 +4,7 @@
 import asyncio
 import io
 import re
-
+from hellas import SOURCE_NAME, DEVELOPER_LINK, DEVELOPER_NAME
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
 from JoKeRUB import bot
@@ -37,26 +37,29 @@ async def start(event):
             buttons=[
                                      [Button.inline("عرض المستخدمين 📬", data="users"), Button.inline(
                                          "اوامر البـوت ⚒️", data="gibcmd")],
-                                     [Button.url("المطـور 🔗", "https://t.me/F_Q_1"), Button.inline(
+                                    [Button.url("المطـور 🔗", DEVELOPER_LINK), Button.inline(
                                          "اوامر الزغـرفة", data="rozzag")],
 
                                  ])
-    else:
-        if already_added(event.sender_id):
-            pass
-        elif not already_added(event.sender_id):
-            add_usersid_in_db(event.sender_id)
-        await tgbot.send_message(
-            event.chat_id,
-            message=starttext,
-            link_preview=False,
-            buttons=[
-                [custom.Button.inline("سورس هيلاس ", data="deploy")],
-                [Button.url("تحتاج مسـاعدة ❓", "https://t.me/F_Q_1")],
-            ],
-        )
+   
+else:
+    if already_added(event.sender_id):
+        pass
+    elif not already_added(event.sender_id):
+        add_usersid_in_db(event.sender_id)
+    await tgbot.send_message(
+        event.chat_id,
+        message=starttext,
+        link_preview=False,
+        buttons=[
+            [custom.Button.inline(SOURCE_NAME, data="deploy")],
+            [Button.url(DEVELOPER_NAME, DEVELOPER_LINK)],
+        ],
+    )
+
 
 #Data
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"deploy")))
 async def help(event):
@@ -66,10 +69,11 @@ async def help(event):
             event.chat_id,
             message="**لتـنصيب البـوت الخاص بك اتبـع الخطـوات في الاسفـل وحاول واذا لم تستطيع تفضل الى مجموعة المساعدة ليساعدوك 🧸♥**.",
             buttons=[
-                [Button.url("لتنصيب السورس ", "https://t.me/HELLASUserBot")],
-                [Button.url("كروب المساعدة ❓", "https://t.me/HELLASSupport")],
+                [Button.url(INSTALL_NAME, INSTALL_LINK)],
+                [Button.url(SUPPORT_NAME, SUPPORT_LINK)],
             ],
         )
+
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
@@ -106,9 +110,8 @@ async def starkislub(event):
     await event.reply(rorza)
 
 @tgbot.on(events.NewMessage(pattern="^/alive", func=lambda e: e.sender_id == bot.uid))
-async def starkislub(event):
-    razan = "**HELLAS 𝘜𝘚𝘌𝘙𝘉𝘖𝘛**\n•━═━═━═━═━━═━═━═━═━•‌‌\n**- حالة البوت **  يعمـل بنجـاح\n**- اصدار السورس  **: 1.23.0\n**- اصدار البايثون **: 3.9.6\n**- يوزرك ** {mention}\n**- CH : HELLASUserBot\n•━═━═━═━═━━═━═━═━═━•‌‌\n"
-    await event.reply(razan)
+async def alive_cmd(event):
+    await event.reply(HELLO_TEXT)
     
     
 
