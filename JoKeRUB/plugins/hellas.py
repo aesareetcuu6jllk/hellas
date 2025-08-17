@@ -17,3 +17,6 @@ def get_rights():
 
 def ch_tag():
     return "⌔︙CH : @HELLASUserBot"
+
+def ch_t2ag():
+    return "HELLAS"
