@@ -4,7 +4,7 @@
 import asyncio
 import io
 import re
-from hellas import SOURCE_NAME, DEVELOPER_LINK, DEVELOPER_NAME
+from hellas import SOURCE_NAME, DEVELOPER_LINK, DEVELOPER_NAME, SUPPORT_NAME, SUPPORT_LINK, INSTALL_LINK, INSTALL_NAME 
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
 from JoKeRUB import bot
