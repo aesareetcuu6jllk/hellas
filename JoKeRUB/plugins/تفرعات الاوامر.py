@@ -12,7 +12,7 @@ import asyncio
 from JoKeRUB import l313l
 
 from ..core.managers import edit_or_reply
-from hellas import ch_t2ag, ch_tag
+from hellas import NAME, CH
 plugin_category = "extra"
 
 # اوامر الادمن لسورس Robin
