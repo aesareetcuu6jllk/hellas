@@ -15,5 +15,5 @@ def get_rights():
         "╰──── • ◈ • ────╯"
     )
 
-NAME = "HELLAS"           # اسم السورس
-CH = "@HELLASUserBot"     # قناة السورس
+NAME = "zekoooo"           # اسم السورس
+CH = "@psggg"     # قناة السورس
