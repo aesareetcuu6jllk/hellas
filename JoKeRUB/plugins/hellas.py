@@ -15,8 +15,5 @@ def get_rights():
         "╰──── • ◈ • ────╯"
     )
 
-def ch_tag():
-    return "⌔︙CH : @psggg"
-
-def ch_t2ag():
-    return "HELLAS"
+NAME = "HELLAS"           # اسم السورس
+CH = "@HELLASUserBot"     # قناة السورس
