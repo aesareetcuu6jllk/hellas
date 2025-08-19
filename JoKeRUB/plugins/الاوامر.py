@@ -12,7 +12,7 @@ from JoKeRUB.utils import admin_cmd
 import asyncio
 from JoKeRUB import l313l
 from random import choice
-
+from cooonfig.config import NAME, CH  # استيراد المتغيرات
 from ..core.managers import edit_or_reply
 from ..sql_helper.globals import gvarstatus
 
@@ -29,15 +29,6 @@ async def _(event):
 )
 
 
-NAME = "سورس تجريبي"
-CH = "@mychannel"
-
-# أمر م1: قائمة الادمن
-@l313l.ar_cmd(pattern="م1$", command=("م1", "general"))
-async def m1_command(event):
-    text = "** قائمة اوامر الادمن لسورس {} **\nCH: {}".format(NAME, CH)
-    await event.edit(text)
-
 		
 @l313l.ar_cmd(
     pattern="م2$",
@@ -46,7 +37,7 @@ async def m1_command(event):
 async def _(event):
 	if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
 		await event.edit(
-		"** قائمة اوامر المجـموعه لسورس HELLAS  **:\n ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n ᯽︙ اختر احدى هذه القوائم\n\n- ( `.اوامر التفليش` )\n- ( `.اوامر المحذوفين` )\n- ( `.اوامر الكروب` )\n★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n⌔︙CH : @HELLASUserBot"
+		"** قائمة اوامر المجـموعه لسورس {NAME}  **:\n ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n ᯽︙ اختر احدى هذه القوائم\n\n- ( `.اوامر التفليش` )\n- ( `.اوامر المحذوفين` )\n- ( `.اوامر الكروب` )\n★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n⌔︙CH : {CH}"
 )
 
 @l313l.ar_cmd(
