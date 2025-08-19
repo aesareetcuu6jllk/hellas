@@ -314,7 +314,12 @@ async def _(event):
     ]
     await event.edit(rozbot, buttons=buttons)
 
-
+@l313l.tgbot.on(CallbackQuery(data=re.compile(rb"rozbot")))
+@check_owner
+async def show_rozbot_handler(event):
+    text_to_send = rozbot.format(NAME=NAME, CH=CH)
+    await event.edit(text_to_send)
+	
 @l313l.tgbot.on(CallbackQuery(data=re.compile(rb"gro")))
 @check_owner
 async def _(event):
