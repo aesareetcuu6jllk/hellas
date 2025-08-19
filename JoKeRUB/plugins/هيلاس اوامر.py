@@ -27,11 +27,6 @@ rozbot = """** قائمة اوامر المجـموعه لسورس {NAME}  **:
 - ( `.اوامر الكروب` )
 ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★
 ⌔︙CH : {CH}"""
-@l313l.tgbot.on(CallbackQuery(data=re.compile(rb"rozbot")))
-@check_owner
-async def show_rozbot_handler(event):
-    text_to_send = rozbot.format(NAME=NAME, CH=CH)
-    await event.edit(text_to_send)
 	
 gro = """** قائمة اوامر الـترحيب والـردود **:\n ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n ᯽︙ اختر احدى هذه القوائم\n\n- ( `.اوامر الترحيب` )\n- ( `.اوامر الردود` )\n★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n⌔︙CH : @HELLASUserBot"""
 grrz = """** قائمة اوامر حـماية الخاص والتلكراف **:\n ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n ᯽︙ اختر احدى هذه القوائم\n\n- ( `.اوامر الحماية` )\n- ( `.اوامر التلكراف` ) \n★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n⌔︙CH : @HELLASUserBot"""
@@ -302,16 +297,25 @@ async def repo(event):
     await event.delete()
 
 
-# هنا دوال الرد على كل زر مع النصوص وملاحة بين الصفحات
+# هنا دوال الرد على كل زر مع النصوص وملاحة بين الصفحا
 
+# زر لعرض القائمة
 @l313l.tgbot.on(CallbackQuery(data=re.compile(rb"l313l0")))
 @check_owner
-async def _(event):
+async def show_buttons(event):
     buttons = [
-        [Button.inline("التالي", data="rozbot"),
-         Button.inline("القائمة الرئيسية", data="CLORN")],
+        [Button.inline("التالي", data=b"rozbot"),
+         Button.inline("القائمة الرئيسية", data=b"CLORN")],
     ]
-    await event.edit(l313l0, buttons=buttons)
+    await event.edit("اضغط التالي لعرض قائمة المجموعة:", buttons=buttons)
+
+# عند الضغط على التالي يظهر النص مع تعويض المتغيرات
+@l313l.tgbot.on(CallbackQuery(data=re.compile(rb"rozbot")))
+@check_owner
+async def show_rozbot_handler(event):
+    text_to_send = rozbot.format(NAME=NAME, CH=CH)
+    await event.edit(text_to_send)
+
 
 
 @l313l.tgbot.on(CallbackQuery(data=re.compile(rb"rozbot")))
