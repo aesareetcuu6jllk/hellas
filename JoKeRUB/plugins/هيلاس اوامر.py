@@ -8,15 +8,11 @@ from l313l.razan.resources.mybot import *
 from JoKeRUB import l313l
 from ..core import check_owner
 from ..Config import Config
-NAME = "سورس تجريبي"
-CH = "@mychannel"
+from cooonfig.config import NAME, CH  # استيراد المتغيرات
 # نصوص محتويات كل زر (يمكن تعديل النصوص حسب طلبك)
 
 ###هيلاس 
 l313l0 = """** قائمة اوامر الادمن لسورس HELLAS  **:\n ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n ᯽︙ اختر احدى هذه القوائم\n\n- ( `.اوامر الحظر` )\n- ( `.اوامر الكتم` )\n- ( `.اوامر التثبيت` )\n- ( `.اوامر الاشراف` )\n★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n⌔︙CH : @HELLASUserBot"""
-
-NAME = "سورس تجريبي"
-CH = "@mychannel"
 
 rozbot = """** قائمة اوامر المجـموعه لسورس {NAME}  **:
 ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★
@@ -308,15 +304,6 @@ async def show_buttons(event):
          Button.inline("القائمة الرئيسية", data=b"CLORN")],
     ]
     await event.edit("اضغط التالي لعرض قائمة المجموعة:", buttons=buttons)
-
-# عند الضغط على التالي يظهر النص مع تعويض المتغيرات
-@l313l.tgbot.on(CallbackQuery(data=re.compile(rb"rozbot")))
-@check_owner
-async def show_rozbot_handler(event):
-    text_to_send = rozbot.format(NAME=NAME, CH=CH)
-    await event.edit(text_to_send)
-
-
 
 @l313l.tgbot.on(CallbackQuery(data=re.compile(rb"rozbot")))
 @check_owner
