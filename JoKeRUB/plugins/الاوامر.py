@@ -35,10 +35,18 @@ async def _(event):
     command=("م1", plugin_category),
 )
 async def _(event):
-	if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
-		await event.edit(
-		"** قائمة اوامر الادمن لسورس {NAME}  **:\n ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n ᯽︙ اختر احدى هذه القوائم\n\n- ( `.اوامر الحظر` )\n- ( `.اوامر الكتم` )\n- ( `.اوامر التثبيت` )\n- ( `.اوامر الاشراف` )\n★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n⌔︙CH : {CH}"
-)
+    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
+        await event.edit(
+            f"** قائمة اوامر الادمن لسورس {NAME}  **:\n"
+            "★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n"
+            "᯽︙ اختر احدى هذه القوائم\n\n"
+            "- ( `.اوامر الحظر` )\n"
+            "- ( `.اوامر الكتم` )\n"
+            "- ( `.اوامر التثبيت` )\n"
+            "- ( `.اوامر الاشراف` )\n"
+            "★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n"
+            f"⌔︙CH : {CH}"
+        )
 		
 @l313l.ar_cmd(
     pattern="م2$",
