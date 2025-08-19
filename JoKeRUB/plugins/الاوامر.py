@@ -17,7 +17,8 @@ from ..core.managers import edit_or_reply
 from ..sql_helper.globals import gvarstatus
 
 plugin_category = "extra"
-from coonfig import NAME, CH
+CH = "@psggg"
+NAME = "helllllllas"
 rehu = [
     "اللهم صلِ على محمد و على آله محمد",
 ]
