@@ -45,7 +45,12 @@ async def _(event):
             "★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★\n"
             f"⌔︙CH : {CH}"
         )
-		
+
+@l313l.ar_cmd(pattern="م551$", command=("م551", "general"))
+async def m1_command(event):
+    text = "** قائمة اوامر الادمن لسورس {} **\nCH: {}".format(NAME, CH)
+    await event.edit(text)
+	
 @l313l.ar_cmd(
     pattern="م2$",
     command=("م2", plugin_category),
