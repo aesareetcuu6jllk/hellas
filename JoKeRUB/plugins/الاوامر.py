@@ -29,7 +29,7 @@ async def _(event):
 )
 
 
-# خلي التعريفات أعلى الملف
+# ✨ متغيرات عامة
 NAME = "سورس تجريبي"
 CH = "@mychannel"
 
@@ -39,8 +39,7 @@ CH = "@mychannel"
 )
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
-        await event.edit(
-            f"""** قائمة اوامر الادمن لسورس {NAME}  **:
+        text = """** قائمة اوامر الادمن لسورس {} **
 ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★
 ᯽︙ اختر احدى هذه القوائم
 
@@ -50,8 +49,9 @@ async def _(event):
 - ( `.اوامر الاشراف` )
 
 ★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★
-⌔︙CH : {CH}"""
-        )
+⌔︙CH : {}""".format(NAME, CH)
+		
+        await event.edit(text)
 
 		
 @l313l.ar_cmd(
