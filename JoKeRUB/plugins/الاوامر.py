@@ -12,12 +12,13 @@ from JoKeRUB.utils import admin_cmd
 import asyncio
 from JoKeRUB import l313l
 from random import choice
-from hellas import NAME, CH
+
 from ..core.managers import edit_or_reply
 from ..sql_helper.globals import gvarstatus
 
 plugin_category = "extra"
-
+CH = "@psggg"
+NAME = "helllas"
 rehu = [
     "اللهم صلِ على محمد و على آله محمد",
 ]
