@@ -29,29 +29,14 @@ async def _(event):
 )
 
 
-# ✨ متغيرات عامة
 NAME = "سورس تجريبي"
 CH = "@mychannel"
 
-@l313l.ar_cmd(
-    pattern="م1$",
-    command=("م1", plugin_category),
-)
-async def _(event):
-    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
-        text = """** قائمة اوامر الادمن لسورس {} **
-★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★
-᯽︙ اختر احدى هذه القوائم
-
-- ( `.اوامر الحظر` )
-- ( `.اوامر الكتم` )
-- ( `.اوامر التثبيت` )
-- ( `.اوامر الاشراف` )
-
-★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★
-⌔︙CH : {}""".format(NAME, CH)
-		
-        await event.edit(text)
+# أمر م1: قائمة الادمن
+@l313l.ar_cmd(pattern="م1$", command=("م1", "general"))
+async def m1_command(event):
+    text = "** قائمة اوامر الادمن لسورس {} **\nCH: {}".format(NAME, CH)
+    await event.edit(text)
 
 		
 @l313l.ar_cmd(
