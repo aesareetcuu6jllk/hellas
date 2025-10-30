@@ -325,43 +325,46 @@ async def _(event):
     await catevent.edit(f"᯽︙ الغاء حظر :__{succ}/{total} في الدردشه {chat.title}__")
 
 # Ported by ©[NIKITA](t.me/kirito6969) and ©[EYEPATCH](t.me/NeoMatrix90)
+from asyncio import sleep
+from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
+from userbot.utils import edit_or_reply, edit_delete
+
 @l313l.ar_cmd(
     pattern="المحذوفين ?([\s\S]*)",
     command=("المحذوفين", plugin_category),
     info={
         "header": "To check deleted accounts and clean",
-        "description": "Searches for deleted accounts in a group. Use `.zombies clean` to remove deleted accounts from the group.",
-        "usage": ["{tr}zombies", "{tr}zombies clean"],
+        "description": "Searches for deleted accounts in a group or channel. Use `.المحذوفين اطردهم` to remove deleted accounts.",
+        "usage": ["{tr}المحذوفين", "{tr}المحذوفين اطردهم"],
     },
-    groups_only=True,
 )
 async def rm_deletedacc(show):
-    "To check deleted accounts and clean"
+    "To check deleted accounts and clean in group or channel"
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "᯽︙  لم يتم العثور على حسابات متروكه او حسابات محذوفة الكروب نظيف"
+    del_status = "᯽︙ لم يتم العثور على حسابات محذوفة أو متروكة، الدردشة نظيفة ✅"
+
     if con != "اطردهم":
-        event = await edit_or_reply(
-            show, "᯽︙  يتم البحث عن حسابات محذوفة او حسابات متروكة انتظر"
-        )
+        event = await edit_or_reply(show, "᯽︙ يتم البحث عن حسابات محذوفة أو متروكة... انتظر ⏳")
         async for user in show.client.iter_participants(show.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(0.5)
+
         if del_u > 0:
-            del_status = f"᯽︙ تـم العـثور : **{del_u}** على حسابات محذوفة ومتروكه في هذه الدردشه من الحسابات في هذه الدردشه,\
-                           \nاطردهم بواسطه  `.المحذوفين اطردهم`"
+            del_status = f"᯽︙ تم العثور على **{del_u}** حسابات محذوفة أو متروكة في هذه الدردشة.\nلطردهم استخدم الأمر `.المحذوفين اطردهم`"
         await event.edit(del_status)
         return
+
     chat = await show.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
+    admin = getattr(chat, "admin_rights", None)
+    creator = getattr(chat, "creator", False)
     if not admin and not creator:
-        await edit_delete(show, "أنا لسـت مشرف هـنا", 5)
+        await edit_delete(show, "❌ ليس لدي صلاحيات الإدارة هنا", 5)
         return
-    event = await edit_or_reply(
-        show, "᯽︙ جاري حذف الحسابات المحذوفة"
-    )
+
+    event = await edit_or_reply(show, "᯽︙ جاري حذف الحسابات المحذوفة...")
+
     del_u = 0
     del_a = 0
     async for user in show.client.iter_participants(show.chat_id):
@@ -371,22 +374,24 @@ async def rm_deletedacc(show):
                 await sleep(0.5)
                 del_u += 1
             except ChatAdminRequiredError:
-                await edit_delete(event, "᯽︙  ليس لدي صلاحيات الحظر هنا", 5)
+                await edit_delete(event, "❌ لا أملك صلاحية الطرد في هذه القناة", 5)
                 return
             except UserAdminInvalidError:
                 del_a += 1
-    if del_u > 0:
-        del_status = f"التنظيف **{del_u}** من الحسابات المحذوفة"
-    if del_a > 0:
-        del_status = f"التنظيف **{del_u}** من الحسابات المحذوف \
-        \n**{del_a}** لا يمكنني حذف حسابات المشرفين المحذوفة"
-    await edit_delete(event, del_status, 5)
+
+    if del_u == 0 and del_a == 0:
+        del_status = "᯽︙ لم يتم العثور على حسابات محذوفة."
+    elif del_u > 0 and del_a == 0:
+        del_status = f"᯽︙ تم حذف **{del_u}** من الحسابات المحذوفة ✅"
+    else:
+        del_status = f"᯽︙ تم حذف **{del_u}** من الحسابات المحذوفة ✅\nولا يمكن حذف **{del_a}** من حسابات المشرفين المحذوفة ❌"
+
+    await edit_delete(event, del_status, 8)
+
     if BOTLOG:
         await show.client.send_message(
             BOTLOG_CHATID,
-            f"#تنـظيف الـمحذوفات\
-            \n{del_status}\
-            \nالـدردشة: {show.chat.title}(`{show.chat_id}`)",
+            f"#تنظيف_المحذوفين\n{del_status}\nالدردشة: {show.chat.title} (`{show.chat_id}`)",
         )
 
 @l313l.ar_cmd(pattern="حظر_الكل(?:\s|$)([\s\S]*)")
